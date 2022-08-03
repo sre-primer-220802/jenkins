@@ -1,12 +1,15 @@
 provider "aws" {
   region  = "us-east-1"
+  profile = "revature-terraform"
 }
 
 terraform {
   backend "s3" {
-    bucket         = "<your bucket here>"
-    key            = "<your statefile here>"
-    region         = "us-east-1"
+    bucket  = "sre-primer-terraform"
+    key     = "jenkins/terraform.tfstate"
+    region  = "us-east-1"
+    profile = "revature-terraform-state"
+    encrypt = true
   }
 }
 
